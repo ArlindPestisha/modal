@@ -7,7 +7,7 @@ const btnsOpenModal = document.querySelectorAll('.show-modal');
 
 // This function is to open the modal when we pass  to the btnsOpenModal eventlistner
 const openModal = function () {
-  console.log('Btn is Clicked');
+  //console.log('Btn is Clicked');
   modal.classList.remove('hidden');
   overlay.classList.remove('hidden');
 };
@@ -28,3 +28,14 @@ for (let i = 0; i < btnsOpenModal.length; i++)
 btnCloseModal.addEventListener('click', closeModal);
 // With this we close the modal when we click outside of the modal
 overlay.addEventListener('click', closeModal);
+
+// Creating the esc keyEvent
+document.addEventListener('keydown', function (e) {
+  //console.log('hey pressed');
+  // console.log(e.key);
+
+  // If the pressed key is ESCAPE and the modal does  not the class #hidden clos the modal
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeModal();
+  }
+});
